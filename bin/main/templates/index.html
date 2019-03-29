@@ -98,11 +98,14 @@
 				<div style="width:330px;">
 					<span id="lab_type1">手机号/账号登陆</span>
 				</div>
+				
 				<div id="form_container1">
 					<br />
-					<input type="text" class="form-control" placeholder="手机号/用户名" id="login_number" value="admin" />
-					<input type="password" class="form-control" placeholder="密码" id="login_password" />
-					<input type="button" value="登录" class="btn btn-success" id="login_btn" />
+					<form action="" th:action="@{~/login.do}" method="post">
+					<input type="text" class="form-control" placeholder="手机号/用户名" id="login_number" value="admin" name="username"/>
+					<input type="password" class="form-control" placeholder="密码" id="login_password" name="password" />
+					<input type="submit" value="登录" class="btn btn-success" id="login_btn" />
+					</form>
 					<span id="rememberOrfindPwd">
 						<span>
 							<input id="remember" type="checkbox" style="margin-bottom: -1.5px;"/>

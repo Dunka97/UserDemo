@@ -24,4 +24,13 @@ public class UserController {
 		userServiceImpl.save(user);
 		return new ModelAndView("redirect:/");
 	}
+	
+	@RequestMapping("/login.do")
+	public ModelAndView login(User user) {
+		System.out.println(user.getUsername()+user.getPassword()+user.getTelephone());
+		Boolean success = userServiceImpl.login(user);
+		
+		if(success==true) return new ModelAndView("/welcome.html");
+		else return new ModelAndView("redirect:/");
+	}
 }

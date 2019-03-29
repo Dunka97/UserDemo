@@ -15,5 +15,9 @@ public class UserServiceImpl implements UserService {
 	public void save(User user) {
 		userRepository.save(user);
 	}
+	public Boolean login(User user) {
+	User user2 = userRepository.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
+		return user2==null?false:true;
+	}
 
 }
