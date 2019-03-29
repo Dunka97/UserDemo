@@ -17,7 +17,8 @@
 			<td th:text="${user.username}">123</td>
 			<td th:text="${user.password}">11</td>
 			<td th:text="${user.telephone}">158</td>
-			<td>修改</td>
+			<td><a th:href="@{'~/toEdit/'+${user.id}}">修改
+				</a></td>
 		</tr>
 	</table>
 </body>

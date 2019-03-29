@@ -2,8 +2,10 @@ package com.dunka.UserDemo.controller;
 
 import java.util.List;
 
+import org.jboss.logging.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,5 +43,14 @@ public class UserController {
 		List<User> userList = userServiceImpl.findAll();
 		model.addAttribute("userList", userList);
 		return new ModelAndView("/showAllUser.html","userModel",model);
+	}
+	@RequestMapping("/toEdit/{id}")
+	public ModelAndView edit(@PathVariable("id")Long id,Model model) {
+		
+		User user = userServiceImpl.findById(id);
+		System.out.println(user.getUsername()+user.getPassword()+user.getTelephone());
+		
+		model.addAttribute("user", user);
+		return new ModelAndView("/editUser.html","userModel",model);
 	}
 }

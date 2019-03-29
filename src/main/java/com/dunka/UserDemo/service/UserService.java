@@ -10,4 +10,5 @@ public interface UserService {
 	void save(User user);
 	Boolean login(User user);
 	List<User> findAll();
+	User findById(Long id);
 }

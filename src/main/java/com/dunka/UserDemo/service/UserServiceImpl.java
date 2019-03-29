@@ -1,6 +1,7 @@
 package com.dunka.UserDemo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findAll() {
 		return (List<User>) userRepository.findAll();
+	}
+	@Override
+	public User findById(Long id) {
+	    Optional<User> user = userRepository.findById(id);
+		return user.get();
 	}
 
 }
