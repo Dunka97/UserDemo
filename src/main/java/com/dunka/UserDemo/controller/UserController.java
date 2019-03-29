@@ -1,6 +1,9 @@
 package com.dunka.UserDemo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,5 +35,11 @@ public class UserController {
 		
 		if(success==true) return new ModelAndView("/welcome.html");
 		else return new ModelAndView("redirect:/");
+	}
+	@RequestMapping("/show.do")
+	public ModelAndView showAllUser(Model model) {
+		List<User> userList = userServiceImpl.findAll();
+		model.addAttribute("userList", userList);
+		return new ModelAndView("/showAllUser.html","userModel",model);
 	}
 }

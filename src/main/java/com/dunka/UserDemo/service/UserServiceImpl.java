@@ -1,5 +1,7 @@
 package com.dunka.UserDemo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class UserServiceImpl implements UserService {
 	public Boolean login(User user) {
 	User user2 = userRepository.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
 		return user2==null?false:true;
+	}
+	@Override
+	public List<User> findAll() {
+		return (List<User>) userRepository.findAll();
 	}
 
 }

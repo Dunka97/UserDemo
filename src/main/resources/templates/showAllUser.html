@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="2px">
+		<tr>
+			<td>用户名</td>
+			<td>密码</td>
+			<td>手机号</td>
+			<td>编辑</td>
+		</tr>
+		<tr th:each="user : ${userList}">
+			<td th:text="${user.username}">123</td>
+			<td th:text="${user.password}">11</td>
+			<td th:text="${user.telephone}">158</td>
+			<td>修改</td>
+		</tr>
+	</table>
+</body>
+</html>
