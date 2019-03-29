@@ -53,4 +53,10 @@ public class UserController {
 		model.addAttribute("user", user);
 		return new ModelAndView("/editUser.html","userModel",model);
 	}
+	@RequestMapping("/edit")
+	public ModelAndView toEdit(User user) {
+		userServiceImpl.save(user);
+		System.out.println(user.getUsername()+"/"+user.getPassword()+"/"+user.getTelephone());
+		return new ModelAndView("redirect:/show.do");
+	}
 }
